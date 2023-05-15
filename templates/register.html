@@ -1,10 +1,10 @@
 {% extends 'admin/base.html' %}
 {% load static  %}
 {% block content %}
-  <h2>Registrar</h2>
+  <h2>Registrar Técnico</h2>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Registrar</button>
+    <button type="submit">Salvar</button>
   </form>
 {% endblock %}
