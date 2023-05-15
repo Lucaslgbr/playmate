@@ -7,3 +7,4 @@ from .equipe_atleta import EquipeAtleta
 from .equipe import Equipe
 from .usuario import Usuario
 from .estado import Estado
+from .deploy_script import DeployScript
