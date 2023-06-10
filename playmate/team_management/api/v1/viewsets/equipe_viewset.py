@@ -11,7 +11,7 @@ class EquipeViewset(ModelViewSet):
 
     def filter_queryset(self, queryset):
         qs = super(EquipeViewset, self).filter_queryset(queryset)
-        completed = json.loads(self.request.query_params.get('completed', False) )
+        completed = json.loads(self.request.query_params.get('completed', 'false') )
         print(completed)
         equipes = []
         if completed:
