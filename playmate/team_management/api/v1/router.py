@@ -9,6 +9,6 @@ viewsets = [
     {'path':'equipe_atleta','viewset':EquipeAtletaViewset},
     {'path':'estado','viewset':EstadoViewset},
     {'path':'usuario','viewset':UsuarioViewset},
-    {'path':'equipe_atleta','viewset':EquipeAtletaViewset},
+    {'path':'equipe','viewset':EquipeViewset},
 
 ]
