@@ -17,11 +17,11 @@ class EquipeViewset(ModelViewSet):
         if completed:
             print(completed, completed, completed)
             for equipe in Equipe.objects.all():
-                if EquipeAtleta.objects.filter(equipe=equipe).count() > 1:
+                if qs.filter(equipe=equipe).count() > 1:
                     equipes.append(equipe.id)
         else:
             for equipe in Equipe.objects.all():
-                if EquipeAtleta.objects.filter(equipe=equipe).count() < 2:
+                if qs.filter(equipe=equipe).count() < 2:
                     equipes.append(equipe.id)
                     print(completed, completed)
         return qs.filter(id__in=equipes)
