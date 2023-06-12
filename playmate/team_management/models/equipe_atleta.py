@@ -8,3 +8,8 @@ class EquipeAtleta(models.Model):
     atleta = models.ForeignKey('Usuario', on_delete=models.DO_NOTHING)
     situacao = models.IntegerField(choices=SituacaoEquipeAtleta.choices)
     fixo = models.BooleanField(default=False)
+
+
+
+    def __str__(self) -> str:
+        return f"{self.equipe}"

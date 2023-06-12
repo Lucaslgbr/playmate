@@ -17,9 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from playmate.team_management.views import home, register
+from playmate.team_management.api.router import APIRouter
+from playmate.team_management.views import CustomObtainAuthToken
+
+api_router = APIRouter()
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
-    path('register', register, name='register')
+    path('register', register, name='register'),
+    path('api/', include(api_router.urls)),
+    path('api/v1/auth/', CustomObtainAuthToken.as_view()),
 ]
