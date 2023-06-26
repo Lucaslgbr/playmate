@@ -11,7 +11,8 @@ class EquipeAtleta(models.Model):
     fixo = models.BooleanField(default=False)
 
 
-    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
         if self.situacao in [SituacaoEquipeAtleta.APROVADO, SituacaoEquipeAtleta.REJEITADO, SituacaoEquipeAtleta.CANCELADO]:
             if self.atleta.clube.tecnico.email:
                 subject='Playmate | Status de aprovação em equipe'
