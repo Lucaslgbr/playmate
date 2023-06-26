@@ -16,7 +16,7 @@ class EquipeAtleta(models.Model):
         if self.situacao in [SituacaoEquipeAtleta.APROVADO, SituacaoEquipeAtleta.REJEITADO, SituacaoEquipeAtleta.CANCELADO]:
             if self.atleta.clube.tecnico.email:
                 subject='Playmate | Status de aprovação em equipe'
-                message = f'O status da solicitação do atleta {self.atleta} foi alterado para {self.get_situacao_display()}'
+                message = f'O status da solicitação do atleta {self.atleta.get_full_name()} foi alterado para {self.get_situacao_display()}'
                 send_mail(subject, message, DEFAULT_FROM_EMAIL, [self.atleta.clube.tecnico.email])
 
 
