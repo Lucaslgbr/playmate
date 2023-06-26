@@ -1,4 +1,5 @@
 from django.contrib import admin
+from playmate.team_management.enums.situacao_equipe_atleta import SituacaoEquipeAtleta
 
 
 import json
@@ -30,11 +31,11 @@ class EquipeDisponivelFilter(admin.SimpleListFilter):
             equipes = []
             if completa:
                 for equipe in Equipe.objects.all():
-                    if EquipeAtleta.objects.filter(equipe=equipe).count() > 1:
+                    if EquipeAtleta.objects.filter(equipe=equipe, situacao=SituacaoEquipeAtleta.APROVADO).count() > 1:
                         equipes.append(equipe.id)
             else:
                 for equipe in Equipe.objects.all():
-                    if EquipeAtleta.objects.filter(equipe=equipe).count() < 2:
+                    if EquipeAtleta.objects.filter(equipe=equipe, situacao=SituacaoEquipeAtleta.APROVADO).count() < 2:
                         equipes.append(equipe.id)
             return queryset.filter(id__in=equipes)
         return queryset
